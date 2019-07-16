@@ -1,0 +1,13 @@
+.*
+*.md
+*.yml
+build
+coverage
+dist/uploader.min.js.map
+samples
+explorations
+perf
+test
+bower.json
+gulpfile.js
+sauce_connect.log
