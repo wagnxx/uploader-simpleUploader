@@ -31,8 +31,8 @@ export default {
       console.log(files, fileList, event);
       // this.files = this.uploader.files;
       // this.fileList = this.uploader.fileList;
-        uploader.upload();
-     
+      uploader.upload();
+
       // uploader.uploadStart()
     });
     uploader.on("uploadStart", function() {
@@ -40,6 +40,11 @@ export default {
     });
     uploader.on("fileComplete", function(rootFile) {
       console.log(rootFile);
+    });
+    uploader.on("complete", function() {
+      debugger;
+
+      console.log(0);
     });
     uploader.on("fileError", function(rootFile, file, message) {
       debugger;
