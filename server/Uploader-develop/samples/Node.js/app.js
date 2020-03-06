@@ -14,7 +14,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/../../dist'));
 
 app.use('*',function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:8080'); //这个表示任意域名都可以访问，这样写不能携带cookie了。
+  res.header('Access-Control-Allow-Origin', 'http://localhost:8082'); //这个表示任意域名都可以访问，这样写不能携带cookie了。
 //res.header('Access-Control-Allow-Origin', 'http://www.baidu.com'); //这样写，只有www.baidu.com 可以访问。
   res.header('Access-Control-Allow-Headers', '*');
   res.header('Access-Control-Allow-Methods', '*');//设置方法

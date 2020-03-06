@@ -11,11 +11,15 @@ var uploader = new Uploader({
   uploader.on("fileSuccess", function(rootFile, file, message) {
     console.log(rootFile, file, message);
   });
-  uploader.on("filesSubmitted", function(files, fileList, event) {
+  uploader.on("filesSubmitted",async function(files, fileList, event) {
     console.log(files, fileList, event);
     // this.files = this.uploader.files;
     // this.fileList = this.uploader.fileList;
-    uploader.upload();
+    let msg=await getLogmsg();
+    if(msg=='ok'){
+debugger
+      uploader.upload();
+    }
 
     // uploader.uploadStart()
   });
@@ -38,3 +42,32 @@ var uploader = new Uploader({
   uploader.assignBrowse(document.getElementById('button'), false, false, {
     // accept: "image/*"s
   });
+  uploader.assignDrop(document.getElementById('dragbox'), false, false, {
+    // accept: "image/*"s
+  });
+
+
+
+
+
+
+
+
+
+  function getLogmsg(){
+    return new Promise(resolve=>{
+      var logmodal =document.getElementById('logmodal');
+      var sure =logmodal.querySelector('button');
+      var input =logmodal.querySelector('input');
+
+      logmodal.style.display='block';
+      sure.onclick =function(){
+        resolve(
+          input.value
+        );
+        logmodal.style.display='none';
+
+      }
+
+    });
+  }
